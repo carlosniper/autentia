@@ -9,14 +9,16 @@ import java.util.List;
 import java.util.Optional;
 
 import org.junit.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.carlosgarcia.autentia.mappers.ProfesorMapper;
 import com.carlosgarcia.autentia.model.Profesor;
 import com.carlosgarcia.autentia.util.AutentiaConstants;
 
-//@ExtendWith(MockitoExtension.class)
+@ExtendWith(MockitoExtension.class)
 public class ProfesorServiceImplTest implements AutentiaConstants{
 	
 	@Mock

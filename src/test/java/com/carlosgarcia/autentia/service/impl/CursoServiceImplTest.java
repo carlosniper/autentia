@@ -9,14 +9,17 @@ import java.util.List;
 import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.carlosgarcia.autentia.mappers.CursoMapper;
 import com.carlosgarcia.autentia.model.Curso;
 import com.carlosgarcia.autentia.util.AutentiaConstants;
 
+@ExtendWith(MockitoExtension.class)
 public class CursoServiceImplTest implements AutentiaConstants{
 	
 	@Mock
