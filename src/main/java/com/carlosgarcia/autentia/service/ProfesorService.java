@@ -1,13 +1,14 @@
 package com.carlosgarcia.autentia.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.carlosgarcia.autentia.model.Profesor;
 
 public interface ProfesorService {
 	
-	public List<Profesor> getAll();
+	public Optional<List<Profesor>> getAll();
 	
-	public Profesor getProfesorById(long id);
+	public Optional<Profesor> getProfesorById(long id);
 
 }

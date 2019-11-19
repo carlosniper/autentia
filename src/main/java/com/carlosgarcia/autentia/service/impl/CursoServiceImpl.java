@@ -1,8 +1,8 @@
 package com.carlosgarcia.autentia.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,37 +18,49 @@ public class CursoServiceImpl implements CursoService{
 	private CursoMapper cursoMapper;
 
 	@Override
-	public List<Curso> getAllCursos() {
+	public Optional<List<Curso>> getAllCursos() {
 		
 		List<Curso> listCursos = cursoMapper.getAll();
 		if(Objects.nonNull(listCursos)) {
-			return listCursos;
+			return Optional.of(listCursos);
 		}
-		return new ArrayList<Curso>(); 
+		return Optional.empty();
 	}
 
 	@Override
-	public Curso getCursoById(long id) {
+	public Optional<Curso> getCursoById(long id) {
 
 		Curso curso = cursoMapper.getById(id);
 		
-		return curso;
+		if(Objects.nonNull(curso)) {
+			return Optional.of(curso);
+		}
+		
+		return Optional.empty();
 	}
 	
 	@Override
-	public Curso getCursoByTitulo(String titulo) {
+	public Optional<Curso> getCursoByTitulo(String titulo) {
 
 		Curso curso = cursoMapper.getByTitulo(titulo);
-		System.out.println(curso);
 		
-		return curso;
+		if(Objects.nonNull(curso)) {
+			return Optional.of(curso);
+		}
+		
+		return Optional.empty();
 	}
 
 	@Override
-	public Curso createCurso(Curso curso) {
+	public Optional<Curso> createCurso(Curso curso) {
 		
 		cursoMapper.insertCurso(curso);
+
+		Curso cursoDB = cursoMapper.getByTitulo(curso.getTitulo());
+		if(Objects.nonNull(cursoDB)) {
+			return Optional.of(cursoDB);
+		}
 		
-		return curso;
+		return Optional.empty();
 	}
 }

@@ -1,6 +1,8 @@
 package com.carlosgarcia.autentia.service.impl;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,13 +18,23 @@ public class ProfesorServiceImpl implements ProfesorService {
 	private ProfesorMapper profesorMapper;
 
 	@Override
-	public Profesor getProfesorById(long id) {
-		return profesorMapper.getById(id);
+	public Optional<Profesor> getProfesorById(long id) {
+		
+		Profesor profesor = profesorMapper.getById(id);
+		if(Objects.nonNull(profesor)) {
+			return Optional.of(profesor);
+		}
+		return Optional.empty();
 	}
 
 	@Override
-	public List<Profesor> getAll() {
-		return profesorMapper.getAll();
+	public Optional<List<Profesor>> getAll() {
+		
+		List<Profesor> listProfesor = profesorMapper.getAll();
+		
+		if(Objects.nonNull(listProfesor)){
+			return Optional.of(listProfesor);
+		}
+		return Optional.empty();
 	}
-
 }
