@@ -11,12 +11,23 @@ import com.carlosgarcia.autentia.mappers.ProfesorMapper;
 import com.carlosgarcia.autentia.model.Profesor;
 import com.carlosgarcia.autentia.service.ProfesorService;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ProfesorServiceImpl.
+ */
 @Service
 public class ProfesorServiceImpl implements ProfesorService {
 	
+	/** The profesor mapper. */
 	@Autowired
 	private ProfesorMapper profesorMapper;
 
+	/**
+	 * Gets the profesor by id.
+	 *
+	 * @param id the id
+	 * @return the profesor by id
+	 */
 	@Override
 	public Optional<Profesor> getProfesorById(long id) {
 		
@@ -27,6 +38,11 @@ public class ProfesorServiceImpl implements ProfesorService {
 		return Optional.empty();
 	}
 
+	/**
+	 * Gets the all.
+	 *
+	 * @return the all
+	 */
 	@Override
 	public Optional<List<Profesor>> getAll() {
 		

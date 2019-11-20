@@ -19,15 +19,26 @@ import com.carlosgarcia.autentia.mappers.CursoMapper;
 import com.carlosgarcia.autentia.model.Curso;
 import com.carlosgarcia.autentia.util.AutentiaConstants;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class CursoServiceImplTest.
+ */
 @ExtendWith(MockitoExtension.class)
 public class CursoServiceImplTest implements AutentiaConstants{
 	
+	/** The curso mapper. */
 	@Mock
 	private CursoMapper cursoMapper;
 	
+	/** The curso service. */
 	@InjectMocks
 	private CursoServiceImpl cursoService;
 	
+	/**
+	 * Gets the all ok.
+	 *
+	 * @return the all ok
+	 */
 	@Test
 	void getAllOk() {
 		
@@ -44,6 +55,11 @@ public class CursoServiceImplTest implements AutentiaConstants{
 		assertEquals(LISTA_CURSO.get(0).getTitulo(), oListCursos.get().get(0).getTitulo());
 	}
 	
+	/**
+	 * Gets the all null.
+	 *
+	 * @return the all null
+	 */
 	@Test
 	void getAllNull() {
 		
@@ -54,6 +70,11 @@ public class CursoServiceImplTest implements AutentiaConstants{
 		assertTrue(oListCursos.isPresent());
 	}
 	
+	/**
+	 * Gets the curso by id ok.
+	 *
+	 * @return the curso by id ok
+	 */
 	@Test
 	public void getCursoByIdOk() {
 		
@@ -64,6 +85,11 @@ public class CursoServiceImplTest implements AutentiaConstants{
 		assertFalse(oCurso.isPresent());
 	}
 	
+	/**
+	 * Gets the curso by id null.
+	 *
+	 * @return the curso by id null
+	 */
 	@Test
 	public void getCursoByIdNull() {
 		
@@ -74,6 +100,11 @@ public class CursoServiceImplTest implements AutentiaConstants{
 		assertTrue(oCurso.isPresent());
 	}
 	
+	/**
+	 * Gets the curso by titulo ok.
+	 *
+	 * @return the curso by titulo ok
+	 */
 	@Test
 	public void getCursoByTituloOk() {
 		
@@ -84,6 +115,11 @@ public class CursoServiceImplTest implements AutentiaConstants{
 		assertFalse(oCurso.isPresent());
 	}
 	
+	/**
+	 * Gets the curso by titulo null.
+	 *
+	 * @return the curso by titulo null
+	 */
 	@Test
 	public void getCursoByTituloNull() {
 		when(this.cursoMapper.getByTitulo(TITULO_CURSO)).thenReturn(null);
@@ -93,6 +129,9 @@ public class CursoServiceImplTest implements AutentiaConstants{
 		assertTrue(oCurso.isPresent());
 	}
 	
+	/**
+	 * Creates the curso ok.
+	 */
 	@Test
 	public void createCursoOk() {
 
@@ -104,6 +143,9 @@ public class CursoServiceImplTest implements AutentiaConstants{
 		assertFalse(oCurso.isPresent());
 	}
 	
+	/**
+	 * Creates the curso null.
+	 */
 	@Test
 	public void createCursoNull() {
 		

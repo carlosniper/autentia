@@ -19,15 +19,26 @@ import com.carlosgarcia.autentia.model.Profesor;
 import com.carlosgarcia.autentia.service.ProfesorService;
 import com.carlosgarcia.autentia.util.AutentiaConstants;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ProfesorControllerTest.
+ */
 @ExtendWith(MockitoExtension.class)
 public class ProfesorControllerTest implements AutentiaConstants{
 	
+	/** The profesor service. */
 	@Mock
 	private ProfesorService profesorService;
 	
+	/** The profesor controller. */
 	@InjectMocks
 	private ProfesorController profesorController;
 	
+	/**
+	 * Gets the profesores ok.
+	 *
+	 * @return the profesores ok
+	 */
 	@Test
 	public void getProfesoresOk() {
 		
@@ -39,6 +50,11 @@ public class ProfesorControllerTest implements AutentiaConstants{
 		assertFalse(response.getBody().isEmpty());
 	}
 	
+	/**
+	 * Gets the profesores empty.
+	 *
+	 * @return the profesores empty
+	 */
 	@Test
 	public void getProfesoresEmpty() {
 		

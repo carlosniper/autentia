@@ -19,15 +19,26 @@ import com.carlosgarcia.autentia.model.Curso;
 import com.carlosgarcia.autentia.service.CursoService;
 import com.carlosgarcia.autentia.util.AutentiaConstants;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class CursoControllerTest.
+ */
 @ExtendWith(MockitoExtension.class)
 public class CursoControllerTest implements AutentiaConstants {
 	
+	/** The curso service. */
 	@Mock
 	private CursoService cursoService;
 	
+	/** The curso controller. */
 	@InjectMocks
 	private CursoController cursoController;
 	
+	/**
+	 * Gets the cursos ok.
+	 *
+	 * @return the cursos ok
+	 */
 	@Test
 	public void getCursosOk() {
 		
@@ -39,6 +50,11 @@ public class CursoControllerTest implements AutentiaConstants {
 		assertFalse(response.getBody().isEmpty());
 	}
 	
+	/**
+	 * Gets the cursos empty.
+	 *
+	 * @return the cursos empty
+	 */
 	@Test
 	public void getCursosEmpty() {
 		
@@ -49,6 +65,9 @@ public class CursoControllerTest implements AutentiaConstants {
 		assertEquals(response.getStatusCode(), HttpStatus.NO_CONTENT);
 	}
 	
+	/**
+	 * Insert curso.
+	 */
 	@Test
 	public void insertCurso() {
 		
@@ -60,6 +79,9 @@ public class CursoControllerTest implements AutentiaConstants {
 		assertEquals(response.getBody().getId(), CURSO.getId());
 	}
 	
+	/**
+	 * Insert curso ok.
+	 */
 	@Test
 	public void insertCursoOk() {
 		
@@ -71,6 +93,9 @@ public class CursoControllerTest implements AutentiaConstants {
 		assertEquals(response.getBody().getId(), CURSO.getId());
 	}
 	
+	/**
+	 * Insert curso null.
+	 */
 	@Test
 	public void insertCursoNull() {
 		
@@ -79,6 +104,9 @@ public class CursoControllerTest implements AutentiaConstants {
 		assertEquals(response.getStatusCode(), HttpStatus.BAD_REQUEST);
 	}
 	
+	/**
+	 * Insert curso empty.
+	 */
 	@Test
 	public void insertCursoEmpty() {
 		

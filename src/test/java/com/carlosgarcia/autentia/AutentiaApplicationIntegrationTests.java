@@ -17,15 +17,26 @@ import com.carlosgarcia.autentia.model.Curso;
 import com.carlosgarcia.autentia.model.Profesor;
 import com.carlosgarcia.autentia.util.AutentiaConstants;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class AutentiaApplicationIntegrationTests.
+ */
 @SpringBootTest
 class AutentiaApplicationIntegrationTests {
 	
+	/** The curso controller. */
 	@Autowired
 	private CursoController cursoController;
 	
+	/** The profesor controller. */
 	@Autowired
 	private ProfesorController profesorController;
 	
+	/**
+	 * Gets the all profesores ok.
+	 *
+	 * @return the all profesores ok
+	 */
 	@Test
 	public void getAllProfesoresOk() {
 		
@@ -35,6 +46,11 @@ class AutentiaApplicationIntegrationTests {
 		assertFalse(response.getBody().isEmpty());
 	}
 
+	/**
+	 * Gets the all cursos ok.
+	 *
+	 * @return the all cursos ok
+	 */
 	@Test
 	public void getAllCursosOk() {
 		
@@ -44,6 +60,9 @@ class AutentiaApplicationIntegrationTests {
 		assertFalse(response.getBody().isEmpty());
 	}
 	
+	/**
+	 * Insert curso ok.
+	 */
 	@Test
 	public void insertCursoOk() {
 		

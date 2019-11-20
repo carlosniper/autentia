@@ -17,14 +17,24 @@ import org.springframework.web.bind.annotation.RestController;
 import com.carlosgarcia.autentia.model.Curso;
 import com.carlosgarcia.autentia.service.CursoService;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class CursoController.
+ */
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("cursos")
 public class CursoController {
 	
+	/** The curso service. */
 	@Autowired
 	private CursoService cursoService;
 	
+	/**
+	 * Gets the cursos.
+	 *
+	 * @return the cursos
+	 */
 	@GetMapping
 	public ResponseEntity<List<Curso>> getCursos(){
 		
@@ -37,6 +47,12 @@ public class CursoController {
 		return new ResponseEntity<List<Curso>>(oListCursos.get(), HttpStatus.OK);
 	}
 	
+	/**
+	 * Insert curso.
+	 *
+	 * @param curso the curso
+	 * @return the response entity
+	 */
 	@PostMapping
 	public ResponseEntity<Curso> insertCurso(@RequestBody Curso curso) {
 				

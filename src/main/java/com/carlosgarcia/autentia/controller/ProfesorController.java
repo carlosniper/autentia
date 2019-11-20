@@ -15,14 +15,24 @@ import org.springframework.web.bind.annotation.RestController;
 import com.carlosgarcia.autentia.model.Profesor;
 import com.carlosgarcia.autentia.service.ProfesorService;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ProfesorController.
+ */
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("profesores")
 public class ProfesorController {
 	
+	/** The profesor service. */
 	@Autowired
 	private ProfesorService profesorService;
 	
+	/**
+	 * Gets the profesores.
+	 *
+	 * @return the profesores
+	 */
 	@GetMapping
 	public ResponseEntity<List<Profesor>> getProfesores(){
 		

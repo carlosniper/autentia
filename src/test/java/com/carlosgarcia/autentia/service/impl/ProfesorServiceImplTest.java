@@ -18,15 +18,26 @@ import com.carlosgarcia.autentia.mappers.ProfesorMapper;
 import com.carlosgarcia.autentia.model.Profesor;
 import com.carlosgarcia.autentia.util.AutentiaConstants;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ProfesorServiceImplTest.
+ */
 @ExtendWith(MockitoExtension.class)
 public class ProfesorServiceImplTest implements AutentiaConstants{
 	
+	/** The profesor mapper. */
 	@Mock
 	private ProfesorMapper profesorMapper;
 	
+	/** The profesor service. */
 	@InjectMocks
 	private ProfesorServiceImpl profesorService;
 	
+	/**
+	 * Gets the all ok.
+	 *
+	 * @return the all ok
+	 */
 	@Test
 	public void getAllOk() {
 		
@@ -39,6 +50,11 @@ public class ProfesorServiceImplTest implements AutentiaConstants{
 		assertEquals(PROFESOR.getNombre(), oListProfesores.get().get(0).getNombre());
 	}
 	
+	/**
+	 * Gets the all null.
+	 *
+	 * @return the all null
+	 */
 	@Test
 	public void getAllNull() {
 		
@@ -49,6 +65,11 @@ public class ProfesorServiceImplTest implements AutentiaConstants{
 		assertTrue(oListProfesores.isPresent());
 	}
 	
+	/**
+	 * Gets the profesor by id ok.
+	 *
+	 * @return the profesor by id ok
+	 */
 	@Test
 	public void getProfesorByIdOk() {
 		
@@ -61,6 +82,11 @@ public class ProfesorServiceImplTest implements AutentiaConstants{
 		assertEquals(PROFESOR.getNombre(), oProfesor.get().getNombre());
 	}
 	
+	/**
+	 * Gets the profesor by id null.
+	 *
+	 * @return the profesor by id null
+	 */
 	@Test
 	public void getProfesorByIdNull() {
 		
