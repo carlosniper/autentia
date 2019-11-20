@@ -28,8 +28,8 @@ public class ProfesorController {
 		
 		Optional<List<Profesor>> oListProfesor = profesorService.getAll();
 		
-		if(oListProfesor.isEmpty()) {
-			return new ResponseEntity<List<Profesor>>(HttpStatus.NOT_FOUND);
+		if(!oListProfesor.isPresent()) {
+			return new ResponseEntity<List<Profesor>>(HttpStatus.NO_CONTENT);
 		}
 		
 		return new ResponseEntity<List<Profesor>>(oListProfesor.get(), HttpStatus.OK);

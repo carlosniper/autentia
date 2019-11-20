@@ -35,7 +35,7 @@ public class CursoServiceImplTest implements AutentiaConstants{
 		
 		Optional<List<Curso>> oListCursos = this.cursoService.getAllCursos();
 		
-		assertFalse(oListCursos.isEmpty());
+		assertFalse(oListCursos.isPresent());
 		assertEquals(LISTA_CURSO.size(), oListCursos.get().size());
 		assertEquals(LISTA_CURSO.get(0).getId(), oListCursos.get().get(0).getId());
 		assertEquals(LISTA_CURSO.get(0).getHoras(), oListCursos.get().get(0).getHoras());
@@ -51,7 +51,7 @@ public class CursoServiceImplTest implements AutentiaConstants{
 		
 		Optional<List<Curso>> oListCursos = this.cursoService.getAllCursos();
 		
-		assertTrue(oListCursos.isEmpty());
+		assertTrue(oListCursos.isPresent());
 	}
 	
 	@Test
@@ -61,7 +61,7 @@ public class CursoServiceImplTest implements AutentiaConstants{
 		
 		Optional<Curso> oCurso = this.cursoService.getCursoById(ID);
 		
-		assertFalse(oCurso.isEmpty());
+		assertFalse(oCurso.isPresent());
 	}
 	
 	@Test
@@ -71,7 +71,7 @@ public class CursoServiceImplTest implements AutentiaConstants{
 		
 		Optional<Curso> oCurso = this.cursoService.getCursoById(ID);
 		
-		assertTrue(oCurso.isEmpty());
+		assertTrue(oCurso.isPresent());
 	}
 	
 	@Test
@@ -81,7 +81,7 @@ public class CursoServiceImplTest implements AutentiaConstants{
 		
 		Optional<Curso> oCurso = this.cursoService.getCursoByTitulo(TITULO_CURSO);
 		
-		assertFalse(oCurso.isEmpty());
+		assertFalse(oCurso.isPresent());
 	}
 	
 	@Test
@@ -90,7 +90,7 @@ public class CursoServiceImplTest implements AutentiaConstants{
 		
 		Optional<Curso> oCurso = this.cursoService.getCursoByTitulo(TITULO_CURSO);
 		
-		assertTrue(oCurso.isEmpty());
+		assertTrue(oCurso.isPresent());
 	}
 	
 	@Test
@@ -101,7 +101,7 @@ public class CursoServiceImplTest implements AutentiaConstants{
 		Optional<Curso> oCurso = this.cursoService.createCurso(CURSO);
 		
 		Mockito.verify(this.cursoMapper).insertCurso(Mockito.any());
-		assertFalse(oCurso.isEmpty());
+		assertFalse(oCurso.isPresent());
 	}
 	
 	@Test
@@ -112,6 +112,6 @@ public class CursoServiceImplTest implements AutentiaConstants{
 		Optional<Curso> oCurso = this.cursoService.createCurso(CURSO);
 		
 		Mockito.verify(this.cursoMapper).insertCurso(Mockito.any());
-		assertTrue(oCurso.isEmpty());
+		assertTrue(oCurso.isPresent());
 	}
 }

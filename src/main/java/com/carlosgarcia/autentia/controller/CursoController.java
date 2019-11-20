@@ -28,10 +28,9 @@ public class CursoController {
 	@GetMapping
 	public ResponseEntity<List<Curso>> getCursos(){
 		
-		
 		Optional<List<Curso>> oListCursos = cursoService.getAllCursos();
 		
-		if(oListCursos.isEmpty()) {
+		if(!oListCursos.isPresent()) {
 			return new ResponseEntity<List<Curso>>(HttpStatus.NO_CONTENT);
 		}
 		
@@ -43,7 +42,12 @@ public class CursoController {
 				
 		if(Objects.nonNull(curso)) {
 			Optional<Curso> oCurso = cursoService.createCurso(curso);
-			return new ResponseEntity<Curso>(oCurso.get(), HttpStatus.CREATED);
+			if(oCurso.isPresent()) {
+				return new ResponseEntity<Curso>(oCurso.get(), HttpStatus.CREATED);
+			}
+			else {
+				return new ResponseEntity<Curso>(HttpStatus.INTERNAL_SERVER_ERROR);
+			}
 		}
 		
 		return new ResponseEntity<Curso>(HttpStatus.BAD_REQUEST);

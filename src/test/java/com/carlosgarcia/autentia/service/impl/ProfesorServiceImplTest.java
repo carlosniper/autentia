@@ -34,7 +34,7 @@ public class ProfesorServiceImplTest implements AutentiaConstants{
 		
 		Optional<List<Profesor>> oListProfesores = this.profesorService.getAll();
 		
-		assertFalse(oListProfesores.isEmpty());
+		assertFalse(oListProfesores.isPresent());
 		assertEquals(PROFESOR.getId(), oListProfesores.get().get(0).getId());
 		assertEquals(PROFESOR.getNombre(), oListProfesores.get().get(0).getNombre());
 	}
@@ -46,7 +46,7 @@ public class ProfesorServiceImplTest implements AutentiaConstants{
 		
 		Optional<List<Profesor>> oListProfesores = this.profesorService.getAll();
 		
-		assertTrue(oListProfesores.isEmpty());
+		assertTrue(oListProfesores.isPresent());
 	}
 	
 	@Test
@@ -56,7 +56,7 @@ public class ProfesorServiceImplTest implements AutentiaConstants{
 		
 		Optional<Profesor> oProfesor = this.profesorService.getProfesorById(ID_PROFESOR);
 		
-		assertFalse(oProfesor.isEmpty());
+		assertFalse(oProfesor.isPresent());
 		assertEquals(PROFESOR.getId(), oProfesor.get().getId());
 		assertEquals(PROFESOR.getNombre(), oProfesor.get().getNombre());
 	}
@@ -68,6 +68,6 @@ public class ProfesorServiceImplTest implements AutentiaConstants{
 		
 		Optional<Profesor> oProfesor = this.profesorService.getProfesorById(ID_PROFESOR);
 		
-		assertTrue(oProfesor.isEmpty());
+		assertTrue(oProfesor.isPresent());
 	}
 }
